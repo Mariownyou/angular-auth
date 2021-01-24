@@ -1,14 +1,35 @@
-<h1>Base</h1>
+<h1 class="text-center">Base</h1>
 
 <div *ngIf="auth.user$ | async as user; else login">
-    {{ user | json }}
-  <hr>
-  <button class="button" (click)="auth.signOut()">Sign Out</button>
+
+  <div class="container">
+    <div>
+      {{ user | json }}
+    </div>
+    <hr>
+    <button class="btn" (click)="auth.signOut()">Sign Out</button>
+  </div>
 
 </div>
 
 <ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">Login with Google</button>
+
+  <div class="container">
+    <form class="mb-2">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button type="submit" class="btn btn-primary mr-1">Submit</button>
+    </form>
+    <button class="btn btn-secondary" (click)="auth.googleSignin()">Login with Google</button>
+  </div>
+  
 </ng-template>
 
 <router-outlet></router-outlet>
