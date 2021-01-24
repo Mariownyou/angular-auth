@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "auth-29a6c": {
+      "hosting": {
+        "auth": [
+          "auth-29a6c"
+        ]
+      }
+    }
+  }
+}
